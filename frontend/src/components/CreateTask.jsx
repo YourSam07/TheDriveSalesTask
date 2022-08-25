@@ -33,21 +33,23 @@ const CreateTask = () => {
           <input type="datetime-local" name="" id="" onChange={(e) => setDetails({...details, start: e.target.value})} className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
           <label htmlFor="">Enter End Time</label>
           <input type="datetime-local" name="" id="" onChange={(e) => setDetails({...details, end: e.target.value})}className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
-          <select name="status" className='py-2 px-4 mb-4 rounded-md text-black border border-slate-200' onChange={(e) => setDetails({...details, status: e.target.value})}>
+          <label htmlFor="" className='text-black mb-2'>Status</label>
+          <select name="status" className='py-2 px-4 mb-4 rounded-md text-slate-300 border border-slate-200' onChange={(e) => setDetails({...details, status: e.target.value})}>
             <option value="">Select the status</option>
-            <option value="Initiated" className="text-black">Initiated</option>
-            <option value="In Progress" className="text-black">In Progress</option>
-            <option value="Finished" className="text-black">Finished</option>
+            <option value="Initiated" >Initiated</option>
+            <option value="In Progress" >In Progress</option>
+            <option value="Finished" >Finished</option>
           </select>
+          <label htmlFor="" className='text-black mb-2'>Priority</label>
           <select name="priority" className='py-2 px-4 mb-4 rounded-md textblack border border-slate-200' onChange={(e) => setDetails({...details, priority: e.target.value})}>
             <option value="">Select the priority</option>
-            <option value="Low" className="text-black">Low</option>
-            <option value="Medium" className="text-black">Medium</option>
-            <option value="High" className="text-black">High</option>
+            <option value="Low" >Low</option>
+            <option value="Medium" >Medium</option>
+            <option value="High" >High</option>
           </select>
           <button type="submit" className='text-white bg-green-200 text-2xl font-bold shadow-md rounded-md hover:bg-green-400'>+</button>
         </form>
-        <div className="errMsg text-red-500 italic text-lg my-2">{errMsg}</div>
+        <div className="errMsg text-red-500 italic text-lg mx-2 my-2">{errMsg}</div>
       </div>
     </>
   )

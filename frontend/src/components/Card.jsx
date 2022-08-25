@@ -67,8 +67,8 @@ const Card = ({ id, title, desc, start, end, status, priority, func }) => {
         <div className="end">Status: {status}</div>
       </div>
       <div className="w-[10%] flex flex-col gap-2">
-        <button className='bg-blue-500 text-black rounded-md hover:bg-blue-300' onClick={() => OpenModal()}>Update</button>
-        <button className='bg-red-500 text-black rounded-md hover:bg-red-300' onClick={() => remove(id)}>Delete</button>
+        <button className='border border-blue-500 text-blue-500 rounded-md hover:bg-blue-500 hover:text-white' onClick={() => OpenModal()}>Update</button>
+        <button className='border border-red-500 text-red-500 rounded-md hover:bg-red-500 hover:text-white' onClick={() => remove(id)}>Delete</button>
       </div>
       <Modal
         isOpen={isModalOpen}
@@ -85,12 +85,14 @@ const Card = ({ id, title, desc, start, end, status, priority, func }) => {
           <input type="datetime-local" onChange={(e) => setDetails({ ...details, start: e.target.value })} className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200' />
           <label htmlFor="">Enter End Time (Current Time: {moment(new Date(start)).format('MMMM Do YYYY, h:mm:ss')})</label>
           <input type="datetime-local" name="" id="" onChange={(e) => setDetails({ ...details, end: e.target.value })} className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200' />
+          <label htmlFor="" className='text-black mb-2'>Status</label>
           <select name="status" defaultValue={details.status} className='py-2 px-4 mb-4 rounded-md text-slate-400 placeholder:text-slate-300 border border-slate-200' onChange={(e) => setDetails({ ...details, status: e.target.value })}>
             <option value="">Select the status</option>
             <option value="Initiated">Initiated</option>
             <option value="In Progress">In Progress</option>
             <option value="Finished">Finished</option>
           </select>
+          <label htmlFor="" className='text-black mb-2'>Priority</label>
           <select name="priority" defaultValue={details.priority} className='py-2 px-4 mb-4 rounded-md text-slate-400 placeholder:text-slate-300 border border-slate-200' onChange={(e) => setDetails({ ...details, priority: e.target.value })}>
             <option value="">Select the priority</option>
             <option value="Low">Low</option>
