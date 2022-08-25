@@ -28,7 +28,7 @@ const Card = ({ id, title, desc, start, end, status, priority, func }) => {
   })
   const update = async (id) => {
     try {
-      const res = await axios.put(`http://localhost:5000/tasks/update/${id}`, details)
+      const res = await axios.put(`https://thedrivesalestask.herokuapp.com/tasks/update/${id}`, details)
       console.log(res)
     } catch (err) {
       console.log(err)
@@ -37,7 +37,7 @@ const Card = ({ id, title, desc, start, end, status, priority, func }) => {
 
   const remove = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/tasks/remove/${id}`)
+      const res = await axios.delete(`https://thedrivesalestask.herokuapp.com/tasks/remove/${id}`)
       func()
       console.log(res)
     } catch (err) {

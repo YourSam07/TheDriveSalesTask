@@ -6,7 +6,7 @@ const AllTasks = () => {
   const [Tasks, setTasks] = useState()
   const getTasks = async () => {
     try{
-      const res = await axios.get("http://localhost:5000/tasks/get")
+      const res = await axios.get("https://thedrivesalestask.herokuapp.com/tasks/get")
       console.log(res.data)
       setTasks(res.data)
     } catch(err){

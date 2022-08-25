@@ -13,7 +13,7 @@ const CreateTask = () => {
   const handleSubmit = async() => {
     console.log(details)
     try{
-      const res = await axios.post("http://localhost:5000/tasks/create", details)
+      const res = await axios.post("https://thedrivesalestask.herokuapp.com/tasks/create", details)
       console.log(res)
     } catch (err) {
       console.log(err)
