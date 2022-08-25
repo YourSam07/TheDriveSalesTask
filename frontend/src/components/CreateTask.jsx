@@ -10,7 +10,8 @@ const CreateTask = () => {
     status: "",
     priority: "",
   })
-  const handleSubmit = async() => {
+  const handleSubmit = async(e) => {
+    e.preventDefault()
     console.log(details)
     try{
       const res = await axios.post("https://thedrivesalestask.herokuapp.com/tasks/create", details)
@@ -23,7 +24,7 @@ const CreateTask = () => {
     <>
       <div className="div text-2xl font-bold mb-4">Create a Task</div>
       <div className="formWrapper">
-        <form action="" className='flex flex-col w-1/3' onSubmit={() => handleSubmit()}>
+        <form action="" className='flex flex-col w-1/3' onSubmit={(e) => handleSubmit(e)}>
           <input type="text" placeholder="Enter a title" className='py-2 px-4 mb-4 rounded-md border border-slate-200' onChange={(e) => setDetails({...details, title: e.target.value})}/>
           <textarea name="" id="" cols="30" rows="5" placeholder="Enter Description" onChange={(e) => setDetails({...details, desc: e.target.value})} className='py-2 px-4 mb-4 rounded-md border border-slate-200'></textarea>
           <label htmlFor="">Enter Start Time</label>
