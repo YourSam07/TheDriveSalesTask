@@ -15,9 +15,7 @@ const createTask = asyncHandler(async(req, res) => {
   console.log(req.body)
   console.log(!req.body.title || !req.body.start || !req.body.end || !req.body.priority || !req.body.status)
   if(!req.body.title || !req.body.start || !req.body.end || !req.body.priority || !req.body.status){
-    res.status(400).json({
-      message: "working"
-    })
+    res.status(400)
     throw new Error('Please fill all the fields.')
   }
 
