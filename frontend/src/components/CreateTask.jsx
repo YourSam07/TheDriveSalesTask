@@ -37,14 +37,14 @@ const CreateTask = () => {
           <label htmlFor="">Enter End Time</label>
           <input type="datetime-local" name="" id="" onChange={(e) => setDetails({...details, end: e.target.value})}className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
           <label htmlFor="" className='text-black mb-2'>Status</label>
-          <select name="status" className='py-2 px-4 mb-4 rounded-md text-slate-300 border border-slate-200' onChange={(e) => setDetails({...details, status: e.target.value})}>
+          <select name="status" className='py-2 px-4 mb-4 rounded-md text-slate-400 border border-slate-200' onChange={(e) => setDetails({...details, status: e.target.value})}>
             <option value="">Select the status</option>
             <option value="Initiated" >Initiated</option>
             <option value="In Progress" >In Progress</option>
             <option value="Finished" >Finished</option>
           </select>
           <label htmlFor="" className='text-black mb-2'>Priority</label>
-          <select name="priority" className='py-2 px-4 mb-4 rounded-md text-slate-300 border border-slate-200' onChange={(e) => setDetails({...details, priority: e.target.value})}>
+          <select name="priority" className='py-2 px-4 mb-4 rounded-md text-slate-400 border border-slate-200' onChange={(e) => setDetails({...details, priority: e.target.value})}>
             <option value="">Select the priority</option>
             <option value="Low" >Low</option>
             <option value="Medium" >Medium</option>
