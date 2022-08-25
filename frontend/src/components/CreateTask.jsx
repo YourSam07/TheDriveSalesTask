@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 const CreateTask = () => {
+  const [errMsg, setErrMsg] = useState()
   const [details, setDetails] = useState({
     title: '',
     desc: '',
@@ -17,7 +18,8 @@ const CreateTask = () => {
       const res = await axios.post("https://thedrivesalestask.herokuapp.com/tasks/create", details)
       console.log(res)
     } catch (err) {
-      console.log(err)
+      console.log(err.response.data.message)
+      setErrMsg(err.response.data.message)
     }
   }
   return (
@@ -28,9 +30,9 @@ const CreateTask = () => {
           <input type="text" placeholder="Enter a title" className='py-2 px-4 mb-4 rounded-md border border-slate-200' onChange={(e) => setDetails({...details, title: e.target.value})}/>
           <textarea name="" id="" cols="30" rows="5" placeholder="Enter Description" onChange={(e) => setDetails({...details, desc: e.target.value})} className='py-2 px-4 mb-4 rounded-md border border-slate-200'></textarea>
           <label htmlFor="">Enter Start Time</label>
-          <input type="datetime-local" name="" id="" onChange={(e) => setDetails({...details, start: e.target.value})} className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
+          <input type="datetime" name="" id="" onChange={(e) => setDetails({...details, start: e.target.value})} className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
           <label htmlFor="">Enter End Time</label>
-          <input type="datetime-local" name="" id="" onChange={(e) => setDetails({...details, end: e.target.value})}className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
+          <input type="datetime" name="" id="" onChange={(e) => setDetails({...details, end: e.target.value})}className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
           <select name="status" className='py-2 px-4 mb-4 rounded-md text-black border border-slate-200' onChange={(e) => setDetails({...details, status: e.target.value})}>
             <option value="">Select the status</option>
             <option value="Initiated" className="text-black">Initiated</option>
@@ -45,6 +47,7 @@ const CreateTask = () => {
           </select>
           <button type="submit" className='text-white bg-green-200 text-2xl font-bold shadow-md rounded-md hover:bg-green-400'>+</button>
         </form>
+        <div className="errMsg text-red-500 italic text-lg my-2">{errMsg}</div>
       </div>
     </>
   )
