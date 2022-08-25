@@ -30,9 +30,9 @@ const CreateTask = () => {
           <input type="text" placeholder="Enter a title" className='py-2 px-4 mb-4 rounded-md border border-slate-200' onChange={(e) => setDetails({...details, title: e.target.value})}/>
           <textarea name="" id="" cols="30" rows="5" placeholder="Enter Description" onChange={(e) => setDetails({...details, desc: e.target.value})} className='py-2 px-4 mb-4 rounded-md border border-slate-200'></textarea>
           <label htmlFor="">Enter Start Time</label>
-          <input type="datetime" name="" id="" onChange={(e) => setDetails({...details, start: e.target.value})} className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
+          <input type="datetime-local" name="" id="" onChange={(e) => setDetails({...details, start: e.target.value})} className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
           <label htmlFor="">Enter End Time</label>
-          <input type="datetime" name="" id="" onChange={(e) => setDetails({...details, end: e.target.value})}className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
+          <input type="datetime-local" name="" id="" onChange={(e) => setDetails({...details, end: e.target.value})}className='py-2 px-4 mb-4 rounded-md placeholder:text-slate-300 border border-slate-200'/>
           <select name="status" className='py-2 px-4 mb-4 rounded-md text-black border border-slate-200' onChange={(e) => setDetails({...details, status: e.target.value})}>
             <option value="">Select the status</option>
             <option value="Initiated" className="text-black">Initiated</option>
