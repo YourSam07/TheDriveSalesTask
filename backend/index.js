@@ -5,6 +5,7 @@ const connectDB = require('./config/db')
 const port = process.env.PORT || 8007
 const cors = require('cors')
 const path = require("path");
+const router = require("./Router/router")
 
 connectDB()
 
@@ -14,7 +15,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-app.use('/tasks', require("./Router/router"))
+app.use('/tasks', router)
 
 app.use(errorHandler)
 
