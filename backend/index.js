@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/tasks', router)
 
-app.use(errorHandler)
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/build")));
@@ -26,6 +26,8 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve("frontend", "build", "index.html"));
   });
 }
+
+app.use(errorHandler)
 
 app.listen(port, () => {
   console.log(`Server is running at ${port}`)
